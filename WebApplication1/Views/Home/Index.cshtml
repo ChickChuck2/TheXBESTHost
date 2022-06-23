@@ -1,0 +1,32 @@
+﻿@using System.Net
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Scripts {
+    <link href="~/css/Index.css" rel="stylesheet" />
+}
+
+<div class="text-center">
+    <p class="title"><h1 class="title">Bem-Vindo ao @Dns.GetHostName()</h1></p>
+    <form method="post">
+        <table>
+            <thead>
+                <tr><th>Funções</th><th>Descrição</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a asp-action="turnOff">Desligar o Computador</a>
+                    </td>
+                    <td>Aqui você pode gerenciar o estado do computador; Hibernação; Reinicialização; Encerramento.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="VBScriptCreator">Criar Mensagens Personalizadas</a>
+                    </td>
+                    <td>Crie mensagens Personalizadas com <span style="color: white;">VBSript</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

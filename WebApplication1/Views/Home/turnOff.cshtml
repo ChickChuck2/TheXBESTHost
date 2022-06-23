@@ -1,0 +1,174 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@section Scripts {
+    <link href=~/css/turnOff.css rel="stylesheet" />
+    <script src="/js/turnOff.js" type="text/javascript"></script>
+}
+<form method="post" id="mainform">
+    <h1 style="color: red; text-align: center;">Desligar o Computador.</h1>
+    <br />
+    <table class="tableinfo">
+        <thead>
+            <tr><th>Parâmetro</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="pari" value="/i">
+                    <label for="pari">/i</label>
+                    </strong>
+                </td>
+                <td>Exibe a caixa Desligamento Remoto . A opção /i deve ser o primeiro parâmetro a seguir o comando. Se /i for 
+                    especificado, todas as outras opções serão ignoradas.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parl" value="/l">
+                    <label for="parl">/l</label>
+                        </strong></td>
+                        <td>Faz logon do usuário atual imediatamente, sem período de tempo limite. Você não pode usar /l com /m ou /t.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="pars" value="/s">
+                    <label for="pars">/s</label>
+                </strong></td>
+                <td>Desliga o computador.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parsg" value="/sg">
+                    <label for="parsg">/sg</label>
+                </strong></td>
+                <td>Desliga o computador. Na próxima inicialização, se o Logon de Reinicialização Automática estiver 
+                    habilitado, o dispositivo entrará automaticamente e bloqueará com base no último usuário interativo. Depois de entrar, ele 
+                    reinicia todos os aplicativos registrados.</td>    
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parr" value="/r">
+                    <label for="parr">/r</label>
+                </strong></td>
+                <td>Reinicia o computador após o desligamento.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parg" value="/g">
+                    <label for="parg">/g</label>
+                </strong></td>
+                <td>Desliga o computador. Na próxima reinicialização, se o Logon de Reinicialização Automática estiver habilitado, 
+                    o dispositivo entrará automaticamente e bloqueará com base no último usuário interativo. Depois de entrar, ele reinicia todos os aplicativos registrados.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="para" value="/a">
+                    <label for="para">/a</label>
+                </strong></td>
+                <td>Anula um desligamento do sistema. Efetivo somente durante o período de tempo limite. Para usar /a, você também deve usar a opção /m .</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parp" value="/p">
+                    <label for="parp">/p</label>
+                </strong></td>
+                <td>Desativa apenas o computador local (não um computador remoto)— sem um período de tempo limite ou aviso. Você pode usar /p 
+                    somente com /d ou /f. Se o computador não der suporte à funcionalidade de desligamento, ele será desligado quando você usar /p, mas a 
+                    energia do computador permanecerá ativada.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parh" value="/h">
+                    <label for="parh">/h</label>
+                </strong></td>
+                <td>Coloca o computador local em hibernação, se a hibernação estiver habilitada. Você pode usar /h somente com /f.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parhybrid" value="hybrid">
+                    <label for="parhybrid">hybrid</label>
+                </strong></td>
+                <td>Desliga o dispositivo e o prepara para a inicialização rápida. Essa opção deve ser usada com a opção /s .</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parfw" value="/fw">
+                    <label for="parfw">/fw</label>
+                </strong></td>
+                <td>Combinar essa opção com uma opção de desligamento faz com que a próxima reinicialização vá para a interface do usuário do firmware.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="pare" value="/e">
+                    <label for="pare">/e</label>
+                </strong></td>
+                <td>Permite documentar o motivo do desligamento inesperado no computador de destino.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="paro" value="/o">
+                    <label for="paro">/o</label>
+                </strong></td>
+                <td>Vai para o menu Opções avançadas de inicialização e reinicia o dispositivo. Essa opção deve ser usada com a opção /r .</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parf" value="/f">
+                    <label for="parf">/f</label>
+                </strong></td>
+                <td>	Força o fechamento de aplicativos em execução sem avisar os usuários.<br>
+                    Cuidado: O uso da opção /f pode resultar em perda de dados não salvos.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parm" value="/m" onchange="parmaction(this, 'parminm','hidden','text' )">
+                    <label for="parm">/m <code>&lt;computername&gt;</code></label>
+                    <input type="hidden" name="parminm" id="parminm">
+                </strong></td>
+                <td>Especifica o computador de destino. Não pode ser usado com a opção /l .</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="part" value="/t" onchange="parmaction(this, 'parmint', 'hidden', 'number')">
+                    <label for="part">/t<code>&lt;xxx&gt;</code></label>
+                    <input type="hidden" name="parmint" id="parmint">
+                </strong></td>
+                <td>Define o período de tempo limite antes do desligamento como xxx segundos. O intervalo válido é 0-315360000 (10 anos), 
+                    com um padrão de 30. Se o período de tempo limite for maior que 0, o parâmetro /f estará implícito.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="pard" value="/d">
+                    <label for="pard">/d<code>[p | u:]&lt;XX&gt;:&lt;YY&gt;</code></label>
+                </strong></td>
+                <td>Lista o motivo da reinicialização ou desligamento do sistema. Os valores de parâmetro com suporte são:
+                    <li>p - Indica que a reinicialização ou desligamento está planejado.</li>
+                    <li>u - Indica que o motivo é definido pelo usuário.</li>
+                    <strong>OBSERVAÇÃO<br></strong>
+                    Se p ou u não forem especificados, a reinicialização ou o desligamento não será planejado.
+                    
+                    <li>xx - Especifica o número principal do motivo (um inteiro positivo, menor que 256).</li>
+                    <li>Aa Especifica o número de motivo menor (um inteiro positivo, menor que 65536).</li></td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="parc" value="/c" onchange="parmaction(this,'parminc','hidden','text')">
+                    <label for="parc">/c<code>&lt;comment&gt;</code></label>
+                    <input type="hidden" name="parminc" id="parminc">
+                </strong></td>
+                <td>Permite que você explique detalhadamente a razão do desligamento. Primeiro você deve fornecer um motivo usando a opção /d 
+                    e deve colocar seus comentários entre aspas. É possível usar até 511 caracteres.</td>
+            </tr>
+            <tr>
+                <td><strong>
+                    <input type="checkbox" name="par?" value="/?">
+                    <label for="par?">/?</label>
+                </strong></td>
+                <td>Exibe ajuda no prompt de comando, incluindo uma lista dos principais e pequenos motivos definidos no computador local.</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" asp-action="SendCommand" id="sendbtn">Enviar</button>
+</form>

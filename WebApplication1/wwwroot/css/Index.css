@@ -1,0 +1,31 @@
+﻿body {
+    background: #191919;
+}
+header
+h1 {
+    color: white;
+}
+table {
+    border: 1px solid #959595;
+    background: #202020;
+    border-radius: 5px;
+}
+table td, table th {
+    border-top: 1px solid #959595;
+    background: #121212;
+}
+table td, table th {
+    padding: .5rem;
+}
+td {
+    color: #909090;
+}
+th {
+    color: #ffffff;
+}
+table td, table th {
+    word-wrap: break-word;
+}
+.title {
+    color: white;
+}

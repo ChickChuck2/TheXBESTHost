@@ -1,0 +1,55 @@
+﻿@using Microsoft.JSInterop
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@inject IJSRuntime JS
+@{
+}
+@section Scripts{
+    <link href="/css/VBScriptCreator.css" rel="stylesheet" />
+    <script src="/js/VBScriptCreator.js" type="text/javascript"></script>
+}
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <td><label class="labelIO">Title</label></td>
+                <td><input type="text" name="titleInput"/></td>
+            </tr>
+            <tr>
+                <td><label class="labelIO">Botões</label></td>
+                <td><select name="btnInput" class="combobox" id="combobox"></select></td>
+            </tr>
+            <tr>
+                <td><label class="labelIO">Descrição</label></td>
+                <td><input type="text" name="descrInput"/></td>
+            </tr>
+            <tr>
+                <td><label class="labelIO">Ícone</label></td>
+                <td><select name="iconInput" class="icobox" id="icobox"></select></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <div>
+        <ul>
+            <li>0 =Botão OK </li>
+            <li>1 =Botões de OK e Cancelar</li>
+            <li>2 =Abort, Retry, and Ignore buttons</li>
+            <li>3 =Botões Sim, Não e Cancelar</li>
+            <li>4 =Botões sim e não</li>
+            <li>5 =Botões Repetir e Cancelar</li>
+            <li>16 =Ícone de mensagem crítica</li>
+            <li>32 =Ícone de consulta de aviso</li>
+            <li>48 = Ícone de mensagem de aviso</li>
+            <li>64 =Ícone de mensagem de informação</li>
+            <li>0 = O primeiro botão é padrão</li>
+            <li>256 =O segundo botão é padrão</li>
+            <li>512 =O terceiro botão é padrão</li>
+            <li>768 =Quarto botão é padrão</li>
+            <li>0 =Modalidade do aplicativo (o aplicativo atual não funcionará até que o usuário responda à caixa de mensagem)</li>
+            <li>4096 =Modal do sistema (todos os aplicativos não funcionarão até que o usuário responda à caixa de mensagem)</li>
+        </ul>
+    </div>
+    <button type="submit" asp-action="CreateVBScript">Enviar</button>
+</form>
