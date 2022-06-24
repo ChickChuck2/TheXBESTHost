@@ -1,0 +1,45 @@
+﻿h3 {
+    color: white;
+}
+
+table {
+    border: 1px solid #959595;
+    background: #202020;
+    border-radius: 90px !important;
+}
+
+table td, table th {
+    border-top: 1px solid #959595;
+    background: #121212;
+    border-radius: 5px;
+    padding: .5rem;
+    word-wrap: break-word;
+}
+
+td {
+    color: #909090;
+}
+
+th {
+    color: #ffffff;
+}
+
+strong {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+:not(a):not(pre) > code {
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.301);
+    border-radius: 3px;
+    font-size: 85%;
+    padding: .1em .2em;
+}
+.headerr {
+    position: fixed;
+    
+}

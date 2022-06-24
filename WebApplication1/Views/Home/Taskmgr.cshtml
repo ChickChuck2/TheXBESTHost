@@ -1,0 +1,45 @@
+﻿@using System.Diagnostics
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@inject Microsoft.JSInterop.IJSRuntime JS
+@{
+    Process[] processes = Process.GetProcesses();
+}
+@section Scripts {
+    <link href="/css/Taskmgr.css" rel="stylesheet" />
+}
+<form method="post">
+<div>
+    <div style="position:fixed; background: white; border-radius: 6px;margin: 0px,50px,0px,50px;">
+        <a href="#Spotify" class="menu-up" onclick="submit">Pesquisar </a>
+        <input type="text"/>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <!--
+                    <td>CPU</td>
+                    <td>GPU</td>
+                    <td>Memória</td>
+                    <td>Disco</td>
+                    <td>Rede</td>
+                -->
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var process in processes)
+                {
+                    <tr>
+                        <td><div id="@process.ProcessName">@process.ProcessName</div></td>
+                        <td><button type="submit" asp-action="KillPrcss" name="@process.Id" asp-route-id="@process.Id">Fechar @process.ProcessName</button></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+</form>

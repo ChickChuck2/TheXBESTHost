@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.JSInterop;
 using System.Diagnostics;
 using WebApplication1.Models;
 
@@ -84,6 +85,28 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("Successful");
         }
+
+        public IActionResult Taskmgr()
+        {
+            Process[] process = Process.GetProcesses();
+            return View();
+        }
+
+        public IActionResult KillPrcss(string id)
+        {
+
+            int NID = int.Parse(id);
+            try
+            {
+                Process.GetProcessById(NID).Kill();
+                return RedirectToAction("Successful");
+            }
+            catch
+            {
+                return RedirectToAction("Failure");
+            }
+        }
+
         private List<(bool active, string result, string inputname)> GetInputProperty(string param, string inputname = "")
         {
             bool active = false;
@@ -126,9 +149,10 @@ namespace WebApplication1.Controllers
 
         public IActionResult Privacy() => View();
         public IActionResult Successful() => View();
-        public IActionResult VBScriptCreator()
+        public IActionResult Failure() => View();
+        public IActionResult VBScriptCreator(IJSRuntime JS)
         {
-            
+
             return View();
         }
 
