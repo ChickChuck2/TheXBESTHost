@@ -1,0 +1,1 @@
+﻿Antes de iniciar o aplicativo, mude para o IP do seu computador no arquivo "appsettings.json" como "urls":  "YOUR IP:PORT" EX: "urls":  "192.168.109:8081"

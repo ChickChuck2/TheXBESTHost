@@ -8,13 +8,14 @@
 }
 @section Scripts {
     <link href="/css/Taskmgr.css" rel="stylesheet" />
+    <script src="/js/Taskmgr.js" type="text/javascript"></script>
 }
+<div style="position:fixed; background: white; border-radius: 6px;margin: 0px,50px,0px,50px;margin: 100px auto;" class="left">
+    <button class="menu-up" onclick="set()" id="search">Pesquisar </button>
+    <input type="text" id="inputsearch"/>
+</div>
 <form method="post">
 <div>
-    <div style="position:fixed; background: white; border-radius: 6px;margin: 0px,50px,0px,50px;">
-        <a href="#Spotify" class="menu-up" onclick="submit">Pesquisar </a>
-        <input type="text"/>
-    </div>
     <table>
         <thead>
             <tr>

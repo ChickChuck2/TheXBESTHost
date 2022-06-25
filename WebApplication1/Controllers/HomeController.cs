@@ -150,10 +150,49 @@ namespace WebApplication1.Controllers
         public IActionResult Privacy() => View();
         public IActionResult Successful() => View();
         public IActionResult Failure() => View();
-        public IActionResult VBScriptCreator(IJSRuntime JS)
+        public IActionResult VBScriptCreator()
         {
-
             return View();
+        }
+        public IActionResult Parsec()
+        {
+            try
+            {
+                Process[] processes = Process.GetProcessesByName("Parsec");
+
+                if (processes.Length > 0)
+                {
+                    foreach (var process in processes)
+                    {
+                        process.Kill();
+                        process.WaitForExit();
+                    }
+                    return RedirectToAction("Successful");
+                }
+                else
+                {
+                    processes = Process.GetProcessesByName("parsecd");
+                    if(processes.Length > 0)
+                    {
+                        foreach (var process in processes)
+                        {
+                            process.Kill();
+                            process.WaitForExit();
+                        }
+                        return RedirectToAction("Successful");
+                    }
+                    else
+                    {
+                        Response.WriteAsync("<script>alert('Nenhum processo com o nome Parsec Encontrado.'); window.history.go(-1);</script>");
+                        return RedirectToAction("Home");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.WriteAsync($"<script>alert('{ex.Message}'); window.history.go(-1);</script>");
+                return RedirectToAction("Failure");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

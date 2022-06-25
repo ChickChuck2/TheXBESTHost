@@ -41,5 +41,7 @@ label {
 }
 .headerr {
     position: fixed;
-    
+}
+.left {
+    float: left;
 }
