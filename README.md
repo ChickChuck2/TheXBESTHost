@@ -6,5 +6,5 @@
 4.  Entrando: Após seguir estes passos, você pode iniciar o aplicativo e ele já vai iniciar uma host com a URL de http://IP:PORTA de acordo com oque você colocou no arquivo appsettings.json
 
 
-# Informações inúteis
-Espera ai kkk
+
+OBS: Ele inicia com o windows
