@@ -4,7 +4,9 @@
 *@
 @inject Microsoft.JSInterop.IJSRuntime JS
 @{
-    Process[] processes = Process.GetProcesses();
+    var processes = Process.GetProcesses()
+    .Where(p => (long)p.MainWindowHandle != 0)
+    .ToArray();
 }
 @section Scripts {
     <link href="/css/Taskmgr.css" rel="stylesheet" />
@@ -31,10 +33,10 @@
             </tr>
         </thead>
         <tbody>
-            @{
-                foreach(var process in processes)
-                {
-                    <tr>
+                @{
+                    foreach(var process in processes)
+                    {
+                        <tr>
                         <td><div id="@process.ProcessName">@process.ProcessName</div></td>
                         <td><button type="submit" asp-action="KillPrcss" name="@process.Id" asp-route-id="@process.Id">Fechar @process.ProcessName</button></td>
                     </tr>

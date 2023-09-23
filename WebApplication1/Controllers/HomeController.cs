@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.JSInterop;
+using System.Collections;
 using System.Diagnostics;
 using WebApplication1.Models;
+using WebApplication1.Views.Home;
 
 namespace WebApplication1.Controllers
 {
@@ -107,7 +109,27 @@ namespace WebApplication1.Controllers
             }
         }
 
-        private List<(bool active, string result, string inputname)> GetInputProperty(string param, string inputname = "")
+        public IActionResult ShowJumpscare()
+        {
+            var Inttime = int.Parse(Request.Form["time"]);
+            Console.WriteLine(Inttime.ToString());
+			try
+            {
+                test t = new();
+                t.Show();
+                Thread.Sleep(Inttime);
+                t.Close();
+                Console.WriteLine("FOI");
+                return RedirectToAction("Successful");
+            }
+            catch
+            {
+                return RedirectToAction("Failure");
+            }
+        }
+
+
+		private List<(bool active, string result, string inputname)> GetInputProperty(string param, string inputname = "")
         {
             bool active = false;
             param = Request.Form[param];
@@ -146,7 +168,7 @@ namespace WebApplication1.Controllers
             Process.Start("cmd.exe", "/C" + command);
         }
 
-
+        public IActionResult jumpscare() => View();
         public IActionResult Privacy() => View();
         public IActionResult Successful() => View();
         public IActionResult Failure() => View();
