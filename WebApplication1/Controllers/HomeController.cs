@@ -116,7 +116,7 @@ namespace WebApplication1.Controllers
 			try
             {
                 test t = new();
-                t.Show();
+                t.Show();   
                 Thread.Sleep(Inttime);
                 t.Close();
                 Console.WriteLine("FOI");
