@@ -111,7 +111,10 @@ namespace WebApplication1.Controllers
 
         public IActionResult ShowJumpscare()
         {
-            var Inttime = int.Parse(Request.Form["time"]);
+            string choosed = Request.Form["jmp2"];
+            Console.WriteLine(choosed);
+
+			var Inttime = int.Parse(Request.Form["time"]);
             Console.WriteLine(Inttime.ToString());
 			try
             {
@@ -168,7 +171,7 @@ namespace WebApplication1.Controllers
             Process.Start("cmd.exe", "/C" + command);
         }
 
-        public IActionResult jumpscare() => View();
+		public IActionResult jumpscare() => View();
         public IActionResult Privacy() => View();
         public IActionResult Successful() => View();
         public IActionResult Failure() => View();

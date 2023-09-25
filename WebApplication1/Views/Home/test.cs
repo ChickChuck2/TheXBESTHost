@@ -12,14 +12,16 @@ namespace WebApplication1.Views.Home
 {
 	public partial class test : Form
 	{
+		public Image choosedImage = Image.FromFile("wwwroot\\res\\henry.jpeg");
 		public test()
 		{
 			InitializeComponent();
+			BackgroundImage = choosedImage;
 		}
 
 		private void test_Load(object sender, EventArgs e)
 		{
-
+			BackgroundImage = choosedImage;
 		}
 	}
 }
