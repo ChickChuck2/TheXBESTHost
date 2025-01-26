@@ -5,13 +5,6 @@
       "commandLineArgs": "--no-console",
       "applicationUrl": "",
       "dotnetRunMessages": true
-    },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
     }
   },
   "iisSettings": {
