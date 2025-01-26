@@ -1,12 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.Configure<RequestLocalizationOptions>(options =>
-{
-	var supportedCultures = new[] { "en-US", "pt-BR" };
-	_ = options.SetDefaultCulture(supportedCultures[0])
-		.AddSupportedCultures(supportedCultures)
-		.AddSupportedUICultures(supportedCultures);
-});
 builder.Services.AddMvc().AddRazorRuntimeCompilation();
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
@@ -17,6 +11,7 @@ if(!app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();

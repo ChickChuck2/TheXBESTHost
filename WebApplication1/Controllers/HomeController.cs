@@ -100,25 +100,21 @@ namespace WebApplication1.Controllers
 				return RedirectToAction("Failure");
 			}
 		}
-		public static Random randomJump = new Random(); // Instância estática
+
 		public IActionResult ShowJumpscare()
 		{
+			string choosed = Request.Form["jmp2"];
+			Console.WriteLine(choosed);
+
+			var Inttime = int.Parse(Request.Form["time"]);
+			Console.WriteLine(Inttime.ToString());
 			try
 			{
-				var Inttime = int.Parse(Request.Form["time"]);
-				var jumppaths = new string[]
-				{
-					"wwwroot/res/bkacman.jpeg",
-					"wwwroot/res/jeff-the-killer-vancethot.gif",
-					"wwwroot/res/henry.jpeg"
-				};
-
-				var choose = jumppaths[randomJump.Next(0, jumppaths.Length)];
 				test t = new();
-				t.BackgroundImage = Image.FromFile(choose);
 				t.Show();
 				Thread.Sleep(Inttime);
 				t.Close();
+				Console.WriteLine("FOI");
 				return RedirectToAction("Successful");
 			}
 			catch
@@ -130,9 +126,9 @@ namespace WebApplication1.Controllers
 
 		private List<(bool active, string result, string inputname)> GetInputProperty(string param, string inputname = "")
 		{
+			var active = false;
 			param = Request.Form[param];
 			inputname = Request.Form[inputname];
-			bool active;
 			if(param == null)
 			{
 				active = false;

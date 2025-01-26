@@ -47,6 +47,7 @@
 			Text = "test";
 			TopMost = true;
 			WindowState = FormWindowState.Maximized;
+			Load += test_Load;
 			ResumeLayout(false);
 		}
 
